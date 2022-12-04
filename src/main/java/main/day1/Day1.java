@@ -22,7 +22,10 @@ public class Day1 {
         List<String> file = new FileParser(getClass()).parse(fileName);
         List<Integer> caloriesByElf = getCaloriesByElf(file);
 
-        return caloriesByElf.subList(0,3).stream().mapToInt(Integer::intValue).sum();
+        return caloriesByElf.stream()
+                .limit(3)
+                .mapToInt(Integer::intValue)
+                .sum();
     }
 
     private static List<Integer> getCaloriesByElf(List<String> file) {
@@ -41,5 +44,3 @@ public class Day1 {
         return caloriesByElf;
     }
 }
-
-
