@@ -10,8 +10,7 @@ import static org.apache.commons.collections4.CollectionUtils.containsAny;
 
 public class Day5 {
 
-    public String part1(String fileName) {
-        List<String> procedure = new FileParser(getClass()).parse(fileName);
+    public String part1(List<String> procedure) {
         int stacksEndIndex = procedure.indexOf("");
         Stacks stacks = new Stacks(procedure.subList(0, stacksEndIndex - 1));
         List<Step> procedureSteps = getSteps(procedure.subList(stacksEndIndex + 1, procedure.size()));
@@ -24,8 +23,7 @@ public class Day5 {
         return stacks.getTopCrates();
     }
 
-    public String part2(String fileName) {
-        List<String> procedure = new FileParser(getClass()).parse(fileName);
+    public String part2(List<String> procedure) {
         int stacksEndIndex = procedure.indexOf("");
         Stacks stacks = new Stacks(procedure.subList(0, stacksEndIndex - 1));
         List<Step> procedureSteps = getSteps(procedure.subList(stacksEndIndex + 1, procedure.size()));

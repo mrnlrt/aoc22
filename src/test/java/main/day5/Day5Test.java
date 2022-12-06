@@ -1,12 +1,17 @@
 package main.day5;
 
-import main.day4.Day4;
+import main.FileParser;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 class Day5Test {
     public static final String DAY = "main/day5";
+    FileParser fileParser = new FileParser(getClass());
+    List<String> example1 = fileParser.parse(DAY + "/example1");
+    List<String> input = fileParser.parse(DAY + "/input");
     Day5 day = new Day5();
 
 //The expedition can depart as soon as the final supplies have been unloaded from the ships.
@@ -80,14 +85,14 @@ class Day5Test {
 //After the rearrangement procedure completes, what crate ends up on top of each stack?
     @Test
     void shouldReturnTopCrates_example_part1(){
-        String topCrates = day.part1(DAY + "/example1");
+        String topCrates = day.part1(example1);
 
         assertThat(topCrates).isEqualTo("CMZ");
     }
 
     @Test
     void shouldReturnTopCrates_input_part1(){
-        String topCrates = day.part1(DAY + "/input");
+        String topCrates = day.part1(input);
 
         assertThat(topCrates).isEqualTo("GFTNRBZPF");
     }
@@ -144,14 +149,14 @@ class Day5Test {
 //Before the rearrangement process finishes, update your simulation so that the Elves know where they should stand to be ready to unload the final supplies. After the rearrangement procedure completes, what crate ends up on top of each stack?
     @Test
     void shouldReturnTopCrates_example_part2(){
-        String topCrates = day.part2(DAY + "/example1");
+        String topCrates = day.part2(example1);
 
         assertThat(topCrates).isEqualTo("MCD");
     }
 
     @Test
     void shouldReturnTopCrates_input_part2(){
-        String topCrates = day.part2(DAY + "/input");
+        String topCrates = day.part2(input);
 
         assertThat(topCrates).isEqualTo("VRQWPDSGP");
     }

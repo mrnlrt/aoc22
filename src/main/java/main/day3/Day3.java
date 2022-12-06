@@ -12,8 +12,8 @@ import static java.util.Arrays.asList;
 public class Day3 {
     public static final String LETTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    public int part1(String fileName) {
-        List<List<String>> rucksacks = new FileParser(getClass()).parse(fileName)
+    public int part1(List<String> input) {
+        List<List<String>> rucksacks = input
                 .stream()
                 .map(rucksack -> asList(rucksack.split("")))
                 .collect(Collectors.toList());
@@ -37,8 +37,8 @@ public class Day3 {
                 .sum();
     }
 
-    public int part2(String fileName) {
-        List<List<String>> rucksacks = new FileParser(getClass()).parse(fileName)
+    public int part2(List<String> input) {
+        List<List<String>> rucksacks = input
                 .stream()
                 .map(rucksack -> asList(rucksack.split("")))
                 .collect(Collectors.toList());

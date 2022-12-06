@@ -21,8 +21,7 @@ public class Day2 {
     );
     public static final Map<String, Integer> SCORES = Map.of(ROCK, 1, PAPER, 2, SCISSORS, 3);
 
-    public int part1(String fileName) {
-        List<String> strategyGuide = new FileParser(getClass()).parse(fileName);
+    public int part1(List<String> strategyGuide) {
 
         return strategyGuide.stream()
                 .map(play -> play.split(" "))
@@ -30,8 +29,7 @@ public class Day2 {
                 .sum();
     }
 
-    public int part2(String fileName) {
-        List<String> strategyGuide = new FileParser(getClass()).parse(fileName);
+    public int part2(List<String> strategyGuide) {
 
         return strategyGuide.stream()
                 .map(play -> play.split(" "))

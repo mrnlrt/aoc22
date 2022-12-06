@@ -11,16 +11,14 @@ import static java.util.Collections.max;
 
 public class Day1 {
 
-    public int part1(String fileName) {
-        List<String> file = new FileParser(getClass()).parse(fileName);
-        List<Integer> caloriesByElf = getCaloriesByElf(file);
+    public int part1(List<String> input) {
+        List<Integer> caloriesByElf = getCaloriesByElf(input);
 
         return caloriesByElf.get(0);
     }
 
-    public int part2(String fileName) {
-        List<String> file = new FileParser(getClass()).parse(fileName);
-        List<Integer> caloriesByElf = getCaloriesByElf(file);
+    public int part2(List<String> input) {
+        List<Integer> caloriesByElf = getCaloriesByElf(input);
 
         return caloriesByElf.stream()
                 .limit(3)

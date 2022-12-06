@@ -1,11 +1,17 @@
 package main.day1;
 
+import main.FileParser;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 class Day1Test {
     public static final String DAY = "main/day1";
+    FileParser fileParser = new FileParser(getClass());
+    List<String> example1 = fileParser.parse(DAY + "/example1");
+    List<String> input = fileParser.parse(DAY + "/input");
     Day1 day = new Day1();
 
 //The jungle must be too overgrown and difficult to navigate in vehicles or access from the air;
@@ -47,28 +53,28 @@ class Day1Test {
 //Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?
     @Test
     void shouldReturnCaloriesOfElfWithMaxCalories_example(){
-        int maxCalories = day.part1(DAY + "/example1");
+        int maxCalories = day.part1(example1);
 
         assertThat(maxCalories).isEqualTo(24000);
     }
 
     @Test
     void shouldReturnCaloriesOfElfWithMaxCalories_input(){
-        int maxCalories = day.part1(DAY + "/input");
+        int maxCalories = day.part1(input);
 
         assertThat(maxCalories).isEqualTo(71780);
     }
 
     @Test
     void shouldReturnSumOfCaloriesOf3ElfWithMaxCalories_example(){
-        int maxCalories = day.part2(DAY + "/example1");
+        int maxCalories = day.part2(example1);
 
         assertThat(maxCalories).isEqualTo(45000);
     }
 
     @Test
     void shouldReturnSumOfCaloriesOf3ElfWithMaxCalories_input(){
-        int maxCalories = day.part2(DAY + "/input");
+        int maxCalories = day.part2(input);
 
         assertThat(maxCalories).isEqualTo(212489);
     }

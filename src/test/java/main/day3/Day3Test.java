@@ -1,12 +1,18 @@
 package main.day3;
 
+import main.FileParser;
 import main.day2.Day2;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 class Day3Test {
     public static final String DAY = "main/day3";
+    FileParser fileParser = new FileParser(getClass());
+    List<String> example1 = fileParser.parse(DAY + "/example1");
+    List<String> input = fileParser.parse(DAY + "/input");
     Day3 day = new Day3();
 
 //One Elf has the important job of loading all of the rucksacks with supplies for the jungle journey.
@@ -56,14 +62,14 @@ class Day3Test {
 // What is the sum of the priorities of those item types?
     @Test
     void shouldReturnSumOfCommonElements_example_part1(){
-        int priorities = day.part1(DAY + "/example1");
+        int priorities = day.part1(example1);
 
         assertThat(priorities).isEqualTo(157);
     }
 
     @Test
     void shouldReturnSumOfCommonElements_input_part1(){
-        int priorities = day.part1(DAY + "/input");
+        int priorities = day.part1(input);
 
         assertThat(priorities).isEqualTo(7824);
     }
@@ -109,14 +115,14 @@ class Day3Test {
 // What is the sum of the priorities of those item types?
     @Test
     void shouldReturnSumOfBadgesPriorities_example_part2(){
-        int sum = day.part2(DAY + "/example1");
+        int sum = day.part2(example1);
 
         assertThat(sum).isEqualTo(70);
     }
 
     @Test
     void shouldReturnSumOfBadgesPriorities_input_part2(){
-        int sum = day.part2(DAY + "/input");
+        int sum = day.part2(input);
 
         assertThat(sum).isEqualTo(2798);
     }

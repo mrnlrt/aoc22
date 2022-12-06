@@ -1,12 +1,18 @@
 package main.day4;
 
+import main.FileParser;
 import main.day3.Day3;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 class Day4Test {
     public static final String DAY = "main/day4";
+    FileParser fileParser = new FileParser(getClass());
+    List<String> example1 = fileParser.parse(DAY + "/example1");
+    List<String> input = fileParser.parse(DAY + "/input");
     Day4 day = new Day4();
 
 //Space needs to be cleared before the last supplies can be unloaded from the ships,
@@ -65,14 +71,14 @@ class Day4Test {
 //In how many assignment pairs does one range fully contain the other?
     @Test
     void shouldReturnNumberOfPairsFullyContainingTheOther_example_part1(){
-        long pairs = day.part1(DAY + "/example1");
+        long pairs = day.part1(example1);
 
         assertThat(pairs).isEqualTo(2);
     }
 
     @Test
     void shouldReturnNumberOfPairsFullyContainingTheOther_input_part1(){
-        long pairs = day.part1(DAY + "/input");
+        long pairs = day.part1(input);
 
         assertThat(pairs).isEqualTo(576);
     }
@@ -93,14 +99,14 @@ class Day4Test {
 //In how many assignment pairs do the ranges overlap?
     @Test
     void shouldReturnNumberOfPairsOverlappingWithTheOther_example_part2(){
-        long sum = day.part2(DAY + "/example1");
+        long sum = day.part2(example1);
 
         assertThat(sum).isEqualTo(4);
     }
 
     @Test
     void shouldReturnNumberOfPairsOverlappingWithTheOther_input_part2(){
-        long sum = day.part2(DAY + "/input");
+        long sum = day.part2(input);
 
         assertThat(sum).isEqualTo(905);
     }

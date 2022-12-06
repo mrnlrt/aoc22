@@ -1,12 +1,18 @@
 package main.day2;
 
+import main.FileParser;
 import main.day1.Day1;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 class Day2Test {
     public static final String DAY = "main/day2";
+    FileParser fileParser = new FileParser(getClass());
+    List<String> example1 = fileParser.parse(DAY + "/example1");
+    List<String> input = fileParser.parse(DAY + "/input");
     Day2 day = new Day2();
 
 //The Elves begin to set up camp on the beach.
@@ -60,14 +66,14 @@ class Day2Test {
 //In this example, if you were to follow the strategy guide, you would get a total score of 15 (8 + 1 + 6).
     @Test
     void shouldReturnScoreFollowingStrategyGuide_example_part1(){
-        int score = day.part1(DAY + "/example1");
+        int score = day.part1(example1);
 
         assertThat(score).isEqualTo(15);
     }
 
     @Test
     void shouldReturnScoreFollowingStrategyGuide_input_part1(){
-        int maxCalories = day.part1(DAY + "/input");
+        int maxCalories = day.part1(input);
 
         assertThat(maxCalories).isEqualTo(14297);
     }
@@ -91,14 +97,14 @@ class Day2Test {
     //Following the Elf's instructions for the second column, what would your total score be if everything goes exactly according to your strategy guide?
     @Test
     void shouldReturnSumOfCaloriesOf3ElfWithMaxCalories_example_part2(){
-        int maxCalories = day.part2(DAY + "/example1");
+        int maxCalories = day.part2(example1);
 
         assertThat(maxCalories).isEqualTo(12);
     }
 
     @Test
     void shouldReturnSumOfCaloriesOf3ElfWithMaxCalories_input_part2(){
-        int maxCalories = day.part2(DAY + "/input");
+        int maxCalories = day.part2(input);
 
         assertThat(maxCalories).isEqualTo(10498);
     }

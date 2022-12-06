@@ -14,8 +14,7 @@ import static org.apache.commons.collections4.CollectionUtils.containsAny;
 
 public class Day4 {
 
-    public long part1(String fileName) {
-        List<String> pairs = new FileParser(getClass()).parse(fileName);
+    public long part1(List<String> pairs) {
         return pairs.stream()
                 .map(pair -> List.of(pair.split(",")))
                 .map(Day4::getPairRanges)
@@ -29,8 +28,7 @@ public class Day4 {
         return firstElfHasSecondElfAssignment || secondElfHasFirstElfAssignment;
     }
 
-    public long part2(String fileName) {
-        List<String> pairs = new FileParser(getClass()).parse(fileName);
+    public long part2(List<String> pairs) {
         return pairs.stream()
                 .map(pair -> List.of(pair.split(",")))
                 .map(Day4::getPairRanges)
