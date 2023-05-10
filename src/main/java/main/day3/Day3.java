@@ -16,7 +16,7 @@ public class Day3 {
         List<List<String>> rucksacks = input
                 .stream()
                 .map(rucksack -> asList(rucksack.split("")))
-                .collect(Collectors.toList());
+                .toList();
         List<String> commonElements = rucksacks.stream()
                 .map(Day3::getRucksackCommonElement)
                 .collect(Collectors.toList());
